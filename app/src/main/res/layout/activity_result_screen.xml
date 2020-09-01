@@ -7,7 +7,7 @@
     tools:context=".ResultScreen">
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/restart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -41,10 +41,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/finalNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NotaFinal"
+            android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -58,7 +59,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="5dp"
             android:text="Hola,"
-            app:layout_constraintEnd_toStartOf="@+id/textView8"
+            app:layout_constraintEnd_toStartOf="@+id/placeName"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/placeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
