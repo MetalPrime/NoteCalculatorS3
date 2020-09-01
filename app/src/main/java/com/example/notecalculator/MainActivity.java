@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button goNotes;
     private EditText inputName;
     private String name;
-    private SharedPreferences preferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         goNotes.setOnClickListener(
                 (v) -> {
                     name = inputName.getText().toString();
+
+                    SharedPreferences preferences = getSharedPreferences("taller3",MODE_PRIVATE);
+                    preferences.edit().putString("username",name).apply();
                     if(name !=""){
                         Intent i = new Intent(this,CalculateInputs.class);
                         startActivity(i);

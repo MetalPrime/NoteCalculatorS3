@@ -12,6 +12,7 @@ public class ResultScreen extends AppCompatActivity {
     private Button restart;
     private TextView finalNote;
     private TextView placeName;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,10 @@ public class ResultScreen extends AppCompatActivity {
         restart = findViewById(R.id.restart);
         finalNote = findViewById(R.id.finalNote);
         placeName = findViewById(R.id.placeName);
+
+        name = getSharedPreferences("taller3",MODE_PRIVATE).getString("username","NO_USER");
+
+        placeName.setText(name);
 
         restart.setOnClickListener(
                 (v)->{
