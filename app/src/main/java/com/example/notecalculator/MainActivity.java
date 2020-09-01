@@ -37,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
+        goConfig.setOnClickListener(
+                (v) -> {
+                    Intent i = new Intent(this,ConfigurationColor.class);
+                    startActivity(i);
+                }
+        );
+
     }
 
 
