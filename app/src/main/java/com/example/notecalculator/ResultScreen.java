@@ -13,6 +13,7 @@ public class ResultScreen extends AppCompatActivity {
     private TextView finalNote;
     private TextView placeName;
     private String name;
+    private String note;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,10 @@ public class ResultScreen extends AppCompatActivity {
         restart = findViewById(R.id.restart);
         finalNote = findViewById(R.id.finalNote);
         placeName = findViewById(R.id.placeName);
+
+        note = getIntent().getExtras().getString("result");
+
+        finalNote.setText(note);
 
         name = getSharedPreferences("taller3",MODE_PRIVATE).getString("username","NO_USER");
 

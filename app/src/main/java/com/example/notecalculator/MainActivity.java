@@ -1,5 +1,6 @@
 package com.example.notecalculator;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     preferences.edit().putString("username",name).apply();
                     if(name !=""){
                         Intent i = new Intent(this,CalculateInputs.class);
-                        startActivity(i);
+                        startActivityForResult(i,11);
                     }
 
                 }
@@ -49,5 +50,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //  Ctrl + O
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode ==11 & resultCode == RESULT_OK){
+            
+        }
+
+    }
 }

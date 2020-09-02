@@ -1,5 +1,7 @@
 package com.example.notecalculator;
 
+import java.text.DecimalFormat;
+
 public class Calculate {
 
     private double pParcia1;
@@ -9,6 +11,7 @@ public class Calculate {
     private double parcial1;
     private double parcial2;
     private double result;
+    private DecimalFormat numberFormat = new DecimalFormat("#.00");
 
     public Calculate(double parcial1,double parcial2,double pParcia1,double pParcia2,double quices,double ejSemanales){
         this.pParcia1 = pParcia1;
@@ -18,14 +21,15 @@ public class Calculate {
         this.ejSemanales = ejSemanales;
         this.quices = quices;
 
-        this.parcial1 = (this.parcial1*15)/100;
-        this.parcial2 = (this.parcial2*15)/100;
-        this.pParcia1 = (this.pParcia1*25)/100;
-        this.pParcia2 = (this.pParcia2*25)/100;
-        this.quices = (this.quices*15)/100;
-        this.ejSemanales = (this.ejSemanales*5)/100;
+        this.parcial1 = (this.parcial1*0.15);
+        this.parcial2 = (this.parcial2*0.15);
+        this.pParcia1 = (this.pParcia1*0.25);
+        this.pParcia2 = (this.pParcia2*0.25);
+        this.quices = (this.quices*0.15);
+        this.ejSemanales = (this.ejSemanales*0.05);
 
-        result = Math.round(this.ejSemanales+this.quices+this.pParcia2+this.pParcia1+this.parcial2+this.parcial1 *100)/100d;
+        result = (this.ejSemanales+this.quices+this.pParcia2+this.pParcia1+this.parcial2+this.parcial1);
+        result = Double.parseDouble(numberFormat.format(result));
     }
 
     public double getResult() {

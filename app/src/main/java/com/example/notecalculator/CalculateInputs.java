@@ -17,6 +17,9 @@ public class CalculateInputs extends AppCompatActivity {
     private EditText parcial2;
     private EditText ejSemanales;
     private Button putNotes;
+    private double p1,p2,pp1,pp2,q,ej;
+    private String passResult;
+    private Calculate calculos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,26 @@ public class CalculateInputs extends AppCompatActivity {
         putNotes = findViewById(R.id.putNotes);
 
 
+
+
         putNotes.setOnClickListener(
                 (v) ->{
+                    p1 = Double.parseDouble(parcial1.getText().toString());
+                    p2 = Double.parseDouble(parcial2.getText().toString());
+                    pp1 = Double.parseDouble(pParcial1.getText().toString());
+                    pp2 = Double.parseDouble(pParcial2.getText().toString());
+                    q = Double.parseDouble(quices.getText().toString());
+                    ej = Double.parseDouble(ejSemanales.getText().toString());
+                    calculos = new Calculate(p1,p2,pp1,pp2,q,ej);
+
+                    passResult = calculos.getResult() + "";
+
                     Intent i = new Intent(this,ResultScreen.class);
+                    i.putExtra("result",passResult);
                     startActivity(i);
                     finish();
+
+
                 }
         );
     }
