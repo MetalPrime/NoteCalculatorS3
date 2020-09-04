@@ -36,13 +36,16 @@ public class MainActivity extends AppCompatActivity {
         inputName = findViewById(R.id.inputName);
         mConstraint = findViewById(R.id.mConstraint);
 
+
+        //preferences.edit().putString("no_color",backgroundColor).apply();
+
         goNotes.setOnClickListener(
                 (v) -> {
                     name = inputName.getText().toString();
 
                     preferences = getSharedPreferences("taller3",MODE_PRIVATE);
                     preferences.edit().putString("username",name).apply();
-                    preferences.edit().putString("color",backgroundColor).apply();
+
                     if(name !=""){
                         Intent i = new Intent(this,CalculateInputs.class);
                         startActivityForResult(i,9);
@@ -53,8 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
         goConfig.setOnClickListener(
                 (v) -> {
-                    Intent i = new Intent(this,ConfigurationColor.class);
-                    startActivityForResult(i,11);
+                    Intent a = new Intent(this,ConfigurationColor.class);
+                    a.putExtra("background",backgroundColor);
+                    startActivityForResult(a,11);
                 }
         );
 
