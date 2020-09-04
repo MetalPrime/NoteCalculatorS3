@@ -26,7 +26,7 @@ public class ConfigurationColor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration_color);
-
+        color = getIntent().getExtras().getString("background");
         selectBlack = findViewById(R.id.selectBlack);
         selectBlue = findViewById(R.id.selectBlue);
         selectWhite = findViewById(R.id.selectWhite);
@@ -56,7 +56,7 @@ public class ConfigurationColor extends AppCompatActivity {
                     setResult(RESULT_OK,i);
                     finish();
                     color = "azul";
-                  mConstraint.setBackgroundColor(BLUE);
+                    mConstraint.setBackgroundColor(BLUE);
                     color=getIntent().getExtras().getString("background");
 
                 }
@@ -78,9 +78,9 @@ public class ConfigurationColor extends AppCompatActivity {
         changeColor();
     }
     public void changeColor(){
-        if(color.equals("blanco")) mConstraint.setBackgroundColor(Color.WHITE);
-        if(color.equals("azul")) mConstraint.setBackgroundColor(Color.BLUE);
-        if(color.equals("negro")) mConstraint.setBackgroundColor(Color.BLACK);
+        if(color.equals("white")) mConstraint.setBackgroundColor(Color.WHITE);
+        if(color.equals("blue")) mConstraint.setBackgroundColor(Color.BLUE);
+        if(color.equals("black")) mConstraint.setBackgroundColor(Color.BLACK);
     }
 
 }

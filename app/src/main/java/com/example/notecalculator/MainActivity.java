@@ -35,20 +35,22 @@ public class MainActivity extends AppCompatActivity {
         goNotes = findViewById(R.id.goNotes);
         inputName = findViewById(R.id.inputName);
         mConstraint = findViewById(R.id.mConstraint);
+        preferences = getSharedPreferences("taller3",MODE_PRIVATE);
+        backgroundColor = "white";
 
-
-        //preferences.edit().putString("no_color",backgroundColor).apply();
 
         goNotes.setOnClickListener(
                 (v) -> {
                     name = inputName.getText().toString();
 
-                    preferences = getSharedPreferences("taller3",MODE_PRIVATE);
+
                     preferences.edit().putString("username",name).apply();
 
-                    if(name !=""){
+                    if(!name.equals("")){
                         Intent i = new Intent(this,CalculateInputs.class);
                         startActivityForResult(i,9);
+                    } else{
+                        Toast.makeText(this,"Por Favor ponga un nombre",Toast.LENGTH_LONG).show();
                     }
 
                 }
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == 11 && resultCode == RESULT_OK){
             backgroundColor = data.getExtras().getString("color");
+            preferences.edit().putString("color",backgroundColor).apply();
 
             Toast.makeText(this, backgroundColor, Toast.LENGTH_LONG).show();
 

@@ -56,26 +56,39 @@ public class CalculateInputs extends AppCompatActivity {
             mConstraint.setBackgroundColor(BLUE);
         }
 
-        putNotes.setOnClickListener(
-                (v) ->{
-                    p1 = Double.parseDouble(parcial1.getText().toString());
-                    p2 = Double.parseDouble(parcial2.getText().toString());
-                    pp1 = Double.parseDouble(pParcial1.getText().toString());
-                    pp2 = Double.parseDouble(pParcial2.getText().toString());
-                    q = Double.parseDouble(quices.getText().toString());
-                    ej = Double.parseDouble(ejSemanales.getText().toString());
-                    calculos = new Calculate(p1,p2,pp1,pp2,q,ej);
+        if(!pParcial1.getText().toString().equals("") && !pParcial2.getText().toString().equals("")
+        && !parcial1.getText().toString().equals("") && !parcial2.getText().toString().equals("")
+        && !quices.getText().toString().equals("") && !ejSemanales.getText().toString().equals("")){
+            putNotes.setOnClickListener(
+                    (v) ->{
+                        p1 = Double.parseDouble(parcial1.getText().toString());
+                        p2 = Double.parseDouble(parcial2.getText().toString());
+                        pp1 = Double.parseDouble(pParcial1.getText().toString());
+                        pp2 = Double.parseDouble(pParcial2.getText().toString());
+                        q = Double.parseDouble(quices.getText().toString());
+                        ej = Double.parseDouble(ejSemanales.getText().toString());
+                        calculos = new Calculate(p1,p2,pp1,pp2,q,ej);
 
-                    passResult = calculos.getResult() + "";
+                        passResult = calculos.getResult() + "";
 
-                    Intent i = new Intent(this,ResultScreen.class);
-                    i.putExtra("result",passResult);
-                    startActivity(i);
-                    finish();
+                        Intent i = new Intent(this,ResultScreen.class);
+                        i.putExtra("result",passResult);
+                        startActivity(i);
+                        finish();
 
 
-                }
-        );
+
+
+
+
+                    }
+            );
+        } else {
+            Toast.makeText(this,"Por Favor, rellene todos los campos con datos válidos",Toast.LENGTH_LONG).show();
+
+        }
+
+
     }
 
 
